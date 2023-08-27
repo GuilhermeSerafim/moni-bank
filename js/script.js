@@ -51,6 +51,7 @@ const mensagens = {
 
 function verificaCampo(campo) {
     let mensagem = "";
+    campo.setCustomValidity('');
     if (campo.name == "cpf" && campo.value.length >= 11) {
         ehUmCPF(campo);
     }
@@ -61,7 +62,6 @@ function verificaCampo(campo) {
     tiposDeErro.forEach(erro => {
         if (campo.validity[erro]) {
             mensagem = mensagens[campo.name][erro];
-            console.log(mensagem);
         }
     }) 
     const mensagemErro = campo.parentNode.querySelector('.mensagem-erro');
